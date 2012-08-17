@@ -46,6 +46,67 @@
     
     // to hold the context of div used to display game controls
     var controlsDiv;
+    
+    
+    /* ***************************************** /
+     * in 1  =jscriptitially it was meat to mark the canvas boundary
+     * but this take the background color of the page (black for my blog)
+     * so now am filling canvas white 
+     * **************************************** */
+     function drawCanvasBoundary()
+     {
+         // set canvas color to be write
+         context.fillStyle="#FFF";
+         // draws a rectangle of canvas size filled with white color.
+         // This serves as our background
+         context.fillRect(0, 0, width, height);
+         context.fill();
+         
+         /* Draw black boundary if working in white background */
+         context.strokeStyle = "#000";
+         context.strokeRect(0, 0, width, height);
+         	
+     }
+     
+     /* *************************************** /
+      * Draws each body part of the snake
+      * x, y = provides the body position
+      * ************************************** */
+      function drawPoint(x, y)
+      {
+      	 // First draw a square for size "sqSize" filled with black
+      	 context.fillStyle = "#000";
+      	 context.fillRect(x, y, sqSize, sqSize);
+      	 context.fill();
+      	 // Then draw the square boundary in white
+      	 context.strokeStyle = "#FFFFFF";
+      	 context.strokeRect(x, y, sqSize, sqSize);
+      }
+      
+      /* ************************************** /
+       * Draws snake by calling the helper drawPoint function
+       * ************************************* */
+      function drawSnake()
+      {
+      	 for (var i=0; i<snakeLength; i++)
+      	     drawPoint(bodyX[i], bodyY[i]);
+      }
+      
+      /* ************************************** /
+       * Initialize the game variables and the game context
+       * and then sends the game to the main game loop
+       * ************************************* */
+       function init()
+       {
+          // Get game context
+          context = document.getElementById("canvas").getContext("2d");
+          // draws the canvas
+          drawCanvasBoundary();
+          // draws snake
+          drawSnake();	
+       }
+       // insert the listener for onload event to call our init function
+       window.addEventListener("load", init, true);
 //-->
 </script>
 
