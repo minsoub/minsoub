@@ -1,0 +1,66 @@
+<!DOCTYPEHTML>
+<html>
+<head>
+
+<script language="javascript">
+<!--
+    // global constants
+    // Variable to hold the entire game context
+    var context;
+    
+    // specifying the with and height of our game area, we'll use the complete canvas
+    // in this case
+    var width = 300;
+    var Height = 400;
+    
+    // Specify the initial game configuration
+    var snakeLength = 3;    // initial length of snake is set to 3
+    var level = 1;          // start from level 1
+    var sqSize = 10;        // step size is 10px. Also size of single body unit
+    
+    /***************************************/
+     * Specify the initial snake alignment and direction of movement
+     * Snake is starts horizontal moving towards its right
+     ***************************************/
+    // array to manage X coordinates for snake body
+    var bodyX = new Array(150, 150-sqSize, 150-2*sqSize);
+    
+    // array to manage Y coordinates for snake body
+    var bodyY = new Array(200, 200, 200);
+    var vX = new Array(1, 1, 1);    // array to manage horizontal velocity for snake body
+    var vY = new Array(0, 0, 0);    // array to manage vertical velocity for snake body
+    // variables used to put rats on the canvas
+    var rX;
+    var rY;
+    // keeping the score
+    var score = 0;
+    
+    // to hold the context of div used to display score and level
+    var scoreDiv;
+    
+    // to check if new rat needs to be placed
+    var eaten = true;
+    
+    // to check if the game is over and enable control to restart the game
+    var gameOver = false;
+    
+    // to hold the context of div used to display game controls
+    var controlsDiv;
+//-->
+</script>
+
+</head>
+
+<body>
+
+  <div id="wrapper">
+     <h1>Snake</h1>
+     <div id="score">Score:0		Level:1</div>
+     <canvas width="300" height="400" id="canvas">
+     </canvas>
+     <div id="control">Controls: W = Up; A = Left; S = Down; D = Right</div>
+  </div>
+
+</body>
+
+</html>
