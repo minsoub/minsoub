@@ -93,6 +93,37 @@
       }
       
       /* ************************************** /
+       * If the rat was eaten, it calculates new rat coordinates,
+       * check for collision with snake body and places new rat on canvas
+       * ************************************** */
+       function moveSnake()
+       {
+          for (var i=0; i<snakeLength; i++)
+          {
+          	  bodyX[i] += (vX[i]*sqSize);
+          	  bodyY[i] += (vY[i]*sqSize);
+          }	
+          for (var i=snakeLength-1; i>0; i--)
+          {
+          	  vX[i] = vX[i-1];
+          	  vY[i] = vY[i-1];
+          }
+          // eatRat();  -- Lets hide it for time being, we shall address this later
+       }
+       
+      /* ************************************** /
+       * Handles keyboard events to control snake
+       * It only acknowledges the arrow keys and ignores the remaining
+       * Calculate the new valid direction for snake head
+       * for instance - if snake is moving right, it cannot move left even
+       * if left arrow is pressed
+       * ************************************* */
+       function keydown(E)
+       {
+       	   
+       }
+      
+      /* ************************************** /
        * Initialize the game variables and the game context
        * and then sends the game to the main game loop
        * ************************************* */
