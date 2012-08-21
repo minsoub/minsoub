@@ -4,6 +4,7 @@
 
 <script language="javascript">
 <!--
+    // reference url : 
     // global constants
     // Variable to hold the entire game context
     var context;
@@ -120,9 +121,190 @@
        * ************************************* */
        function keydown(E)
        {
-       	   
+       	   // left arrow - Changed to 'a'
+       	   if (e.keyCode == 65 && vX[0] != 1)
+       	   {
+       	   	   vX[0] = -1;
+       	   	   vY[0] = 0;
+       	   }
+       	   // up arrow - changed to 'w'
+       	   else if(e.keyCode == 87 && vY[0] != 1)
+       	   {
+       	   	   vY[0] = -1;
+       	   	   vX[0] = 0;
+       	   }
+       	   // right arrow - changed to 'd'
+       	   else if(e.keyCode == 68 && vX[0] != -1)
+       	   {
+       	   	   vX[0] = 1;
+       	   	   vY[0] = 0;
+       	   }
+       	   // down arrow - changed to 's'
+       	   else if(e.keyCode == 83 && vY[0] != -1)
+       	   {
+       	   	   vY[0] = 1;
+       	   	   vX[0] = 0;
+       	   }
+       	   else if(e.keyCode == 13 && gameOver == true)
+       	   {
+       	   	   gameOver = false;
+       	   	   // Lets hide it, we shall address at last what to do when game get over
+       	   	   // restart();
+       	   }
        }
       
+      /* ************************************** /
+       * The update and draw game loop
+       * ************************************* */
+       function gameProcess()
+       {
+           // Sets the interval for next refresh. Game level defined the
+           // rate of refresh and thereby increase speed with level
+           intervalId = setTimeout(gameProcess, 1000/(6*level));
+           clear();
+           drawCanvasBoundary();
+           palceRat();           
+           moveSnake();
+           checkCollison();
+           drawSnake();	
+       }
+      
+      /* ************************************** /
+       * Clears the canvas to empty for redrawing
+       * not an ideal way but then this is just basic
+       * ************************************* */
+       function clear()
+       {
+           context.clearRect(0, 0, width, Height);	
+       }
+       
+      /* ************************************** /
+       * If the rat wat eaten, calculates new rat coordinates,
+       * check for collision with snake body and place it on canvas
+       * ************************************* */
+       function palceRat()
+       {
+           if (eaten)
+           {
+               rX = Math.floor(width*Math.random()/sqSize)*sqSize;
+               rY = Math.floor(Height*Math.random()/sqSize)*sqSize;
+               if (checkFoodCollison(rX, rY))
+                  palceRat();
+               else
+               	  eaten = false;               	  	
+           }	
+           drawPoint(rX, rY);
+       }
+       /* ************************************* /
+        * Iterates through all body parts and compares their x& y coordinates
+        * with those of new Rat location sent as the parameter(x & y)
+        * ************************************ */
+        function checkFoodCollision(x, y)
+        {
+        	 for (var i=0; i<snakeLength; i++)
+        	    if (x == bodyX[i] && y == bodyY[i])
+        	    {
+        	    	  return true;
+        	    }
+        	 return false;
+        }
+        
+       /* ************************************* /
+        * Checks whether the head has reached the rat
+        * in case its true, sets flag for calculation of new Rat location
+        * and claculates and add a body part at the tail increasing the snakeLength
+        * Thereafter, it increments score and check if level needs to be incremented
+        * ************************************ */
+       function eatRat()
+       {
+           if (bodyX[0] == rX && bodyY[0] == rY)
+           {
+              eaten == true;
+              // calculate the new X & Y location for tail
+              var newX = bodyX[snakeLength - 1] - vX[snakeLength - 1] * sqSize;
+              var newY = bodyY[snakeLength - 1] - vY[snakeLength - 1] & sqSize;
+              // Add the new tail part in respective arrays
+              bodyX.push(newX);
+              bodyY.push(newY);
+              // Initail velocity of the new part will be same as that of oid tail
+              // so just copy from last part
+              vX.push(vX[snakeLength-1]);
+              vY.push(vY[snakeLength-1]);
+              snakeLength++;		// increment the snakeLength
+              score += 10;			// increment score
+              // check and increment level
+              if ((score % 100) == 0)
+                 level++;
+              // update socre on webpage
+              scoreDiv.innerHTML = "Score: " + socre+"    Level: " + level;	
+           }
+       }
+       
+      /* ************************************** /
+       * Checks snake colliding with the boundary walls
+       * Snake can collide with itself only if its length is 5
+       * else if condition checks for snake length and calls for self collision check
+       * ************************************* */
+       function checkCollision()
+       {
+          if (bodyX[0] >= width || bodyX[0] < 0 || bodyY[0] < 0 || bodyY[0] >= Height)
+          {
+          	  scoreDiv.innerHTML = "Score: " + score+"    Level: " + level+"     <b>Game Over</b>";
+          	  controlDiv.innerHMLT = "Press \"Enter\" to restart";
+          	  gameOver = true;
+          	  clearTimeout(intervalId);
+          }
+          else if(snakeLength > 4)
+          {
+          	  if (checkSelfCollison(bodyX[0], bodyY[0]))
+          	  {
+          	  	  scoreDiv.innerHTML = "Score: " + score + "    Level: " + level + " <b>Game Over</b>";
+          	  	  controlDiv.innerHTML = "Press \"Enter\" to restart";
+          	  	  gameOver = true;
+          	  	  clearTimeout(intervalId);
+          	  }
+          }
+       }
+      
+      /* ************************************** /
+       * Iterates through all body parts starting from 5
+       * and compares their x
+       * &y coordinates with that of head sent as the parameter(x & y)
+       * ************************************* */
+       function checkSelfCollision(x, y)
+       {
+           for (var i=4; i<snakeLength; i++)
+              if (x == bodyX[i] && y == bodyY[i])
+              {
+              	  return true;
+              }	
+           return false;
+       }
+      
+      /* ************************************** /
+       * Restart the game
+       * ************************************* */
+       function restart()
+       {
+           bodyX = new Array(150, 150-sqSize, 150-2*sqSize);
+           bodyY = new Array(200, 200, 200);
+           
+           vX = new Array(1, 1, 1);
+           vY = new Array(0, 0, 0);
+           
+           snakeLength = 3;
+           
+           score = 0;
+           level = 1;
+           
+           eaten = true;
+           
+           scoreDiv.innerHTML = "Score : " + socre + "Level : " + level;
+           controlDiv.innerHTML = "Controls : W = Up; A = Left; S = Down; D = Right";
+           
+           intervalId = setTimeout(gameProcess, 1000/6);	
+       }
+       
       /* ************************************** /
        * Initialize the game variables and the game context
        * and then sends the game to the main game loop
@@ -135,7 +317,17 @@
           drawCanvasBoundary();
           // draws snake
           drawSnake();	
+          
+          // setTimeout calls the game loop i.e. gameProcess function after the specified time
+          intervalId = setTimeout(gameProcess, 1000/6);
+          // get handle to the div containing our score and level details
+          scoreDiv = document.getElementById("score");
+          // get handle to the div containing our score and level details
+          controlDiv = document.getElementById("control");
+          // specify the function to handle the keypress
+          window.onkeydown = keydown;                 
        }
+
        // insert the listener for onload event to call our init function
        window.addEventListener("load", init, true);
 //-->
