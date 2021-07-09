@@ -9,15 +9,15 @@ minsoub/minsoub is a ✨ special ✨ repository because its `README.md` (this fi
 You can click the Preview link to take a look at your changes.
 --->
 My Repository Introduction.
-- MapView
-  맵뷰 프로그램은 Qt(C++)로 만든 맵 뷰어 프로그램이다. 
-  지도 데이터의 경우 구글 맵에서 위/경도 좌표를 얻어 레이어 형태로 그린다.
-  Qt에서 제공하는 QGraphicSceen을 사용해서 지도를 그리며 지도위에 다양한 도형 및 텍스트를 그릴 수 있는
-  도구도 만들어 제공한다.   
-  
-- LotProject
-  LotProject는 Python/Flask/jinja2를 활용한 웹프레임워크이며 해당 프로그램은 반도체 이미지를 분석해서
-  출력하는 프로그램이다. Python의 가상화위에서 실행되도록 구성되었다. 
+- MapView  
+  맵뷰 프로그램은 Qt(C++)로 만든 맵 뷰어 프로그램이다.   
+  지도 데이터의 경우 구글 맵에서 위/경도 좌표를 얻어 레이어 형태로 그린다.  
+  Qt에서 제공하는 QGraphicSceen을 사용해서 지도를 그리며 지도위에 다양한 도형 및 텍스트를 그릴 수 있는  
+  도구도 만들어 제공한다.     
+    
+- LotProject  
+  LotProject는 Python/Flask/jinja2를 활용한 웹프레임워크이며 해당 프로그램은 반도체 이미지를 분석해서  
+  출력하는 프로그램이다. Python의 가상화위에서 실행되도록 구성되었다.   
   
 - WeatherView
   Android App으로 모바일 날씨정보 어플이다. 해당 어플리케이션에서 제공하는 기능은 아래와 같다. 
