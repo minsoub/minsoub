@@ -9,6 +9,21 @@ minsoub/minsoub is a ✨ special ✨ repository because its `README.md` (this fi
 You can click the Preview link to take a look at your changes.
 --->
 My Repository Introduction.
+- SwingSaverAdmin
+  Spring Boot/JPA/Hibernate/JWT 토큰인증
+  Docker Container
+  Backend Application 프레임워크
+  
+- SwingAngular   
+  개발언어 : Angular (typescript)   
+  SwingAngular는 Angular로 개발한 프런트앤드 프레임워크이다.     
+  프런트앤드 개발을 시작할 때 바로 도입될 수 있는 프레임워크를 구성하기 위해서 개발했다.    
+  제공되는 기능은 로그인을 통해 백엔드에서 수신된 토큰 데이터를 localstorage에 저장하고 관리한다.    
+  프로그램 샘플 제공을 위해서 간단한 한개의 업무에 대해서 CRUD를 제공하며    
+  CRUD에 대한 Service, State, Facade의 패턴을 통해서 데이터를 송수신 처리한다.    
+  guard 패턴을 도입해 CanActivate의 구현 클래스가 권한 여부를 체크한다.    
+  HttpInterceptor를 통해 헤더에 토큰을 추가하고 Request에 대한 토큰 만료 여부를 체크한다.  
+  
 - MapView  
   맵뷰 프로그램은 Qt(C++)로 만든 맵 뷰어 프로그램이다.   
   지도 데이터의 경우 구글 맵에서 위/경도 좌표를 얻어 레이어 형태로 그린다.  
@@ -34,17 +49,7 @@ My Repository Introduction.
 - UdpDump   
   개발언어 : C++(QT)   
   UdpDump 프로그램은 네트워크 데이터를 패킷을 캡쳐하는 프로그램이다.    
-  패킷의 캡쳐는 pcap을 사용해서 패킷을 캡쳐하며 캡쳐된 데이터를 분석해서 출력한다.    
-     
-- SwingAngular   
-  개발언어 : Angular (typescript)   
-  SwingAngular는 Angular로 개발한 프런트앤드 프레임워크이다.     
-  프런트앤드 개발을 시작할 때 바로 도입될 수 있는 프레임워크를 구성하기 위해서 개발했다.    
-  제공되는 기능은 로그인을 통해 백엔드에서 수신된 토큰 데이터를 localstorage에 저장하고 관리한다.    
-  프로그램 샘플 제공을 위해서 간단한 한개의 업무에 대해서 CRUD를 제공하며    
-  CRUD에 대한 Service, State, Facade의 패턴을 통해서 데이터를 송수신 처리한다.    
-  guard 패턴을 도입해 CanActivate의 구현 클래스가 권한 여부를 체크한다.    
-  HttpInterceptor를 통해 헤더에 토큰을 추가하고 Request에 대한 토큰 만료 여부를 체크한다.   
+  패킷의 캡쳐는 pcap을 사용해서 패킷을 캡쳐하며 캡쳐된 데이터를 분석해서 출력한다.          
      
 - SwingSaver   
   개발언어 : JAVA(Spring Framework)   
