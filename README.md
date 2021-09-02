@@ -1,14 +1,14 @@
-- 👋 Hi, I’m @minsoub
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-
 <!---
 minsoub/minsoub is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
 --->
 My Repository Introduction.
+- bcheck-eks-setup-pjt
+  EKS Cluster 구성 및 어플리케이션 배포 
+    - EKS Cluster 구성 및 설정
+    - 어플리케이션 EKS 배포 
+    - 어플리케이션 로그 모니터링 구성 : Prometheus/Grafana 구성 
+  URL : https://github.com/minsoub/bcheck-eks-setup-pjt
 - SwingSaverAdmin  
   Spring Boot/JPA/Hibernate/JWT 토큰인증  
   Docker Container  
