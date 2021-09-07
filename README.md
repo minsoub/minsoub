@@ -5,6 +5,7 @@ You can click the Preview link to take a look at your changes.
 My Repository Introduction.
 - bcheck-api   
   Spring Boot/JPA/DocumentDB/Swagger API(OpenAPI 3.0)  
+  Prometheus Log 전송   
   buildspec.yaml : Source Build/Docker Image create/ECR push/EKS apply  
   Docker image deploy  
   EKS Deployment  
