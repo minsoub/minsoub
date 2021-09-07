@@ -3,11 +3,12 @@ minsoub/minsoub is a ✨ special ✨ repository because its `README.md` (this fi
 You can click the Preview link to take a look at your changes.
 --->
 My Repository Introduction.
-- bcheck-api
+- bcheck-api   
   Spring Boot/JPA/DocumentDB/Swagger API(OpenAPI 3.0)  
   buildspec.yaml : Source Build/Docker Image create/ECR push/EKS apply  
   Docker image deploy  
   EKS Deployment  
+  URL : https://github.com/minsoub/bcheck-api   
 - bcheck-eks-setup-pjt
   EKS Cluster 구성 및 어플리케이션 배포 
     - EKS Cluster 구성 및 설정  
