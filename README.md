@@ -19,6 +19,13 @@ My Repository Introduction.
     - 어플리케이션 EKS 배포   
     - 어플리케이션 로그 모니터링 구성 : Prometheus/Grafana 구성   
   URL : https://github.com/minsoub/bcheck-eks-setup-pjt
+- bcheck-application-docker-test   
+  Spring Boot/Restful API application.   
+  Docker build description.   
+  Build/deploy automation via lambda functions.   
+  Using AWS CodeCommit/CodeBuild   
+  This application is deployed on ECS.   
+  URL : https://github.com/minsoub/bcheck-api-docker-test   
 - SwingSaverAdmin  
   Spring Boot/JPA/Hibernate/JWT 토큰인증  
   Docker Container  
